@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" 
+    class="light"
+    th:fragment="parent(content, title, script)" 
+    xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">SCM</title>
+    <!-- Flowbite -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
+    <link rel="stylesheet" data-th-href="@{'/css/style.css'}" />
+</head>
+<body class="dark:bg-gray-900 dark:text-white">
+    <!-- Common Header -->
+
+    <!-- navbar -->
+    <div data-th-if="${loggedInUser}">
+        <div th:replace="~{user/user_navbar :: user-navbar}"></div>
+    </div>
+    <div data-th-unless="${loggedInUser}">
+        <div th:replace="~{navbar :: navbar}"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="p-4 pt-10">
+        <section th:replace="${content}"></section>
+    </div>
+
+    <!-- Common Footer -->
+     <footer class="p-4">
+        <hr>
+        SCM : Smart Contact Manager
+        <hr>
+     </footer>
+</body>
+<script data-th-replace="${script}"></script>
+<script data-th-src="@{'/js/script.js'}"></script>
+<!-- Flowbite -->
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+</html>

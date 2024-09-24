@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{:: #content}, ~{:: title}, ~{:: script})}">
+<head>
+    <title>ContactUs</title>
+</head>
+<body>
+    <section id="content">
+        <h1 class="text-2xl">This is ContactUs Page</h1>
+        <h2>This is Dynamic Content passed to base :: parent to show in ContactUs Page only</h2>
+    </section>
+    <script>
+        console.log("ContactUs Page");
+    </script>
+    <script>
+        console.log("ContactUs Page Called...");
+    </script>
+</body>
+</html>
