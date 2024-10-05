@@ -11,4 +11,6 @@ import com.scm.entities.User;
 public interface UserRepo extends JpaRepository<User, String>{
     // Auto-Generated Custom Finder Methods...
     Optional<User> findByEmail(String email);
+
+    Optional<User> findByEmailToken(String token);
 }

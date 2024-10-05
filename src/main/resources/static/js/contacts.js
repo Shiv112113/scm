@@ -99,5 +99,14 @@ async function deleteContact(id) {
     } catch (error) {
         console.log("Error : ", error);
     }
+}
 
+// Export Contacts to Excel...
+function exportData() {
+    TableToExcel.convert(document.getElementById("contacts-table"), {
+        name: "contacts.xlsx",
+        sheet: {
+            name: "Sheet 1"
+        }
+    });
 }

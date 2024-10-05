@@ -1,6 +1,9 @@
 package com.scm.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +27,9 @@ public class PageController {
 
     @Autowired
     private UserService userService;
+
+    // @Autowired
+    // private Authentication authentication;
 
     @GetMapping("/")
     public String index() {
@@ -66,8 +72,12 @@ public class PageController {
     // Login Page Router...
     @RequestMapping("/login")
     public String loginPage() {
-        System.out.println("Login Page Loading");
-        return "login";
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            System.out.println("Login Page Loading");
+            return "login";
+        }
+        return "redirect:/";
     }
 
     // Sign Up Page Router...
@@ -76,6 +86,7 @@ public class PageController {
         System.out.println("Signup Page Loading");
         return "signup";
     }
+
 
     // The showSignupForm method initializes the userForm object and adds it to the model. 
     // This ensures that the userForm object is available when the signup.html template is rendered.
@@ -102,6 +113,7 @@ public class PageController {
         user.setEmail(userForm.getEmail());
         user.setPassword(userForm.getPassword());
         user.setPhoneNumber(userForm.getPhoneNumber());
+        user.setEnabled(false);
 
         User saveUser = userService.saveUser(user);
 

@@ -11,7 +11,10 @@
             <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4">
                 <!-- Card -->
                 <div class="block p-6 bg-white border-t-[10px] border-blue-700  rounded-xl shadow dark:bg-gray-800 dark:border-blue-700">
-                     
+                    
+                    <!-- Alert Message Box -->
+                    <div th:replace="~{message :: alertMessage}"></div>
+
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Login Here
                     </h5>
@@ -22,10 +25,10 @@
                     <!-- Sign Up Form -->
                     <form data-th-action="@{'/authenticate'}" method="post"
                         class="mt-5" novalidate>
-                            <!-- Alert Message -->
-                        <div class="text-red-600 dark:text-red-500 text-center my-3" th:if="${param.error}">
+                            <!-- Message -->
+                        <!-- <div class="text-red-600 dark:text-red-500 text-center my-3" th:if="${param.error}">
                             Invalid username and password
-                         </div>
+                         </div> -->
                          <div class="text-green-500 dark:text-green-400 text-center my-3" th:if="${param.logout}">
                             You have been logged out.
                          </div>
@@ -36,7 +39,7 @@
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                             <input type="email" name="email" id="email"
 
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Enter your Email" required />
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white" placeholder="Enter your Email" required />
                                 <!-- Email Field Error Message  -->
                             <!-- <p th:if="${#fields.hasErrors('email')}" 
                                 th:errors="*{email}"
@@ -50,7 +53,7 @@
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                             <input type="password" name="password" id="password"
 
-                                placeholder="Enter Your Password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                                placeholder="Enter Your Password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white" required />
                                 <!-- Password Field Error Message  -->
                             <!-- <p th:if="${#fields.hasErrors('password')}" 
                                 th:errors="*{password}"

@@ -47,3 +47,20 @@ function getTheme(){
     }
     return storedTheme;
 }
+
+function logout() {
+    Swal.fire({
+        title: "Logout !!!",
+        text: "Are You Sure...?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Confirm"
+      }).then((result) => {
+        if (result.isConfirmed) {
+            const url = `http://localhost:8081/logout`;
+            window.location.replace(url);
+        }
+      });
+}

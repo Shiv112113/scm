@@ -13,6 +13,7 @@ public interface UserService {
     boolean isUserExist(String userId);
     boolean isUserExistByEmail(String email);
     User getUserByEmail(String email);
+    User getUserByEmailToken(String token);
 
     List<User> getAllUsers();
 
