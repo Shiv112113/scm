@@ -1,29 +1,197 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="~{base :: parent(~{:: #content}, ~{:: title}, ~{})}">
+<html lang="en" class="dark" th:insert="~{base :: parent(~{:: #content}, ~{:: title}, ~{:: script})}">
 <head>
-    <title>Home Page</title>
+    <title>Home Page</title>   
 </head>
 <body>
-    <div id="content" class="bg-gray-200 dark:bg-gray-800 w-1/2 py-4 flex flex-col space-y-3 mx-auto mt-4 items-center">
-        <h1 class = "text-2xl font-bold" 
-            data-th-text="${name}">
-                Welcome to Home Page
-        </h1>
-        <p class="text-lg">
-            Email: <span data-th-text="${email}"></span>
-        </p>
+    <div id="content">
+        <div class="h-96">
+            <div class="absolute -z-10 opacity-50 dark:opacity-30 w-full h-96 bg-[url('/images/cloud-storage.svg')] bg-no-repeat md:bg-right"></div>
+            <div class="flex w-full h-full">
+                <div class="w-full h-full ps-[3%]">
+                    <h1 class="text-5xl md:text-7xl font-light">SCM</h1>
+                    <h2 class="text-3xl md:text-5xl font-extralight">Secure Contacts Manager</h2>
 
-        <p>Course: <span data-th-text="${learning}"></span></p>
+                    <p class="text-xl md:text-2xl font-mono py-5 ">
+                        A Web App to host your personal Contacts and info in the Cloud Safely & Securely.
+                    </p>
+                    <div class="w-full flex items-center">
+                        <p class="text-xl  md:text-2xl font-mono py-5">To ensure Data</p>
+                        <h1 id="typewriter" class="ms-3 text-2xl md:text-3xl font-mono"></h1>
+                        <div id="cursor" class="w-0 h-10 border-2"></div>
+                    </div>
+                    <div class="pt-1">
+                        <a type="button" 
+                            th:href="@{'/signup'}"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            Get Started
+                        </a>
+                    </div>
 
-        <a data-th-href="${github}">GitHub Link</a>
+                </div>
+                
+            </div>
+        </div>
 
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, debitis obcaecati. Laudantium quae rem sed quod quasi placeat distinctio molestias asperiores praesentium minus. Veritatis, voluptate. Nobis, minus aperiam ducimus cum vero totam molestias alias accusamus aspernatur repudiandae maxime consequuntur reprehenderit perspiciatis pariatur perferendis optio maiores odio similique atque iure adipisci.
-        </p>
-        
-        <button class="bg-blue-800 text-white px-2 py-2 rounded hover:bg-blue-700">
-            Click Here
-        </button>
+        <div class="flex flex-col items-center space-y-3 mt-8">
+            <p class="flex text-3xl md:text-5xl justify-center px-4 py-3 font-thin">Project Specifications:</p>
+                
+            <div id="detailed-pricing" class="w-fit overflow-x-auto">
+                <div class="overflow-hidden w-full">
+                    <div class="grid grid-cols-5 sm:grid-cols-2 p-4 text-sm font-medium text-gray-900 bg-gray-100 border-t border-b border-gray-200 gap-x-16 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+                        <div class="flex items-center col-span-2 sm:col-span-1">Specification</div>
+                        <div>Technology</div>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-2 px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 sm:col-span-1 text-gray-500 dark:text-gray-400">Framework</div>
+                        <div class="col-span-3 sm:col-span-1 dark:text-gray-300 text-lg font-mono">Spring Boot 3</div>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-2 px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 sm:col-span-1 text-gray-500 dark:text-gray-400">Security</div>
+                        <div class="col-span-3 sm:col-span-1 dark:text-gray-300 text-lg font-mono">Spring Security</div>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-2 px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 sm:col-span-1 text-gray-500 dark:text-gray-400">oAuth2</div>
+                        <div class="col-span-3 sm:col-span-1 dark:text-gray-300 text-lg font-mono">Google, Github</div>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-2 px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 sm:col-span-1 text-gray-500 dark:text-gray-400">Build</div>
+                        <div class="col-span-3 sm:col-span-1 dark:text-gray-300 text-lg font-mono">Maven</div>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-2 px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 sm:col-span-1 text-gray-500 dark:text-gray-400">Data Base</div>
+                        <div class="col-span-3 sm:col-span-1 dark:text-gray-300 text-lg font-mono">MySQL</div>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-2 px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 sm:col-span-1 text-gray-500 dark:text-gray-400">API</div>
+                        <div class="col-span-3 sm:col-span-1 dark:text-gray-300 text-lg font-mono">REST API</div>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-2 px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 sm:col-span-1 text-gray-500 dark:text-gray-400">JPA Repo</div>
+                        <div class="col-span-3 sm:col-span-1 dark:text-gray-300 text-lg font-mono">Spring Data JPA</div>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-2 px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 sm:col-span-1 text-gray-500 dark:text-gray-400">ORM Framework</div>
+                        <div class="col-span-3 sm:col-span-1 dark:text-gray-300 text-lg font-mono">Hibernate</div>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-2 px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 sm:col-span-1 text-gray-500 dark:text-gray-400">HTML template Engine</div>
+                        <div class="col-span-3 sm:col-span-1 dark:text-gray-300 text-lg font-mono">ThymeLeaf</div>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-2 px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 sm:col-span-1 text-gray-500 dark:text-gray-400">CSS</div>
+                        <div class="col-span-3 sm:col-span-1 dark:text-gray-300 text-lg font-mono">TailwindCSS</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center space-y-3 mt-8">
+            <p class="flex text-2xl sm:text-3xl md:text-5xl justify-center px-4 py-3 font-thin">Project Implimentations:</p>
+                
+            <div id="detailed-pricing" class="w-fit sm:w-5/6 md:w-3/4 overflow-x-auto">
+                <div class="overflow-hidden w-fit">
+                    <div class="grid grid-cols-6 md:grid-cols-9 lg:grid-cols-12 p-4 text-sm font-medium text-gray-900 bg-gray-100 border-t border-b border-gray-200 gap-x-16 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+                        <div class="flex items-center col-span-2 md:col-span-3 lg:col-span-4">Implimentation</div>
+                        <div>Description</div>
+                    </div>
+                    <div class="grid grid-cols-6 md:grid-cols-9 lg:grid-cols-12 px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 md:col-span-3 lg:col-span-4 text-gray-500 dark:text-gray-400">CRUD</div>
+                        <div class="col-span-4 md:col-span-6 lg:col-span-8  dark:text-gray-300 text-lg font-mono">Can perform CRUD Operations (ie. CREATE, RETRIVE, UPDATE, DELETE).</div>
+                    </div>
+                    <div class="grid grid-cols-6 md:grid-cols-9 lg:grid-cols-12 px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 md:col-span-3 lg:col-span-4 text-gray-500 dark:text-gray-400">Security</div>
+                        <div class="col-span-4 md:col-span-6 lg:col-span-8 dark:text-gray-300 text-lg font-mono">Authenticated Data Access with proper Authentication implemented with Spring Security Protocols.</div>
+                    </div>
+                    <div class="grid grid-cols-6 md:grid-cols-9 lg:grid-cols-12  px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 md:col-span-3 lg:col-span-4 text-gray-500 dark:text-gray-400">oAuth2 Authentication</div>
+                        <div class="col-span-4 md:col-span-6 lg:col-span-8 dark:text-gray-300 text-lg font-mono">External libraries (like Google, Github) is implemented for genuine authentication of Users.</div>
+                    </div>
+                    <div class="grid grid-cols-6 md:grid-cols-9 lg:grid-cols-12 px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 md:col-span-3 lg:col-span-4 text-gray-500 dark:text-gray-400">Hibernate (JPA)</div>
+                        <div class="col-span-4 md:col-span-6 lg:col-span-8 dark:text-gray-300 text-lg font-mono">An ORM(Object Relational Mapping) tool based on JPA Protocol, is implemented for mapping Java data types with SQL data types and database tables.</div>
+                    </div>
+                    <div class="grid grid-cols-6 md:grid-cols-9 lg:grid-cols-12 px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 md:col-span-3 lg:col-span-4 text-gray-500 dark:text-gray-400">Database</div>
+                        <div class="col-span-4 md:col-span-6 lg:col-span-8 dark:text-gray-300 text-lg font-mono">MySQL Database is implemented to store data on the server.</div>
+                    </div>
+                    <div class="grid grid-cols-6 md:grid-cols-9 lg:grid-cols-12 px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 md:col-span-3 lg:col-span-4 text-gray-500 dark:text-gray-400">Media Storege Service</div>
+                        <div class="col-span-4 md:col-span-6 lg:col-span-8 dark:text-gray-300 text-lg font-mono">To Store media, Cloudinary API is integrated in order to store and fetch media (like Images, logo etc).</div>
+                    </div>
+                    <div class="grid grid-cols-6 md:grid-cols-9 lg:grid-cols-12 px-4 py-3 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="col-span-2 md:col-span-3 lg:col-span-4 text-gray-500 dark:text-gray-400">Mail Service</div>
+                        <div class="col-span-4 md:col-span-6 lg:col-span-8 dark:text-gray-300 text-lg font-mono">To Send mails (including e-mail verifications), Mailtrap & GMail API's are integrated for seamless Interaction & Authentication.</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </div>
+    
+    <script>
+        const words = ["Security!", "Integrity!", "Durability."];
+        let i = 0;
+        let j = 0;
+        let currentWord = "";
+        let isDeleting = false;
+        
+        function type() {
+            currentWord = words[i];
+            if (isDeleting) {
+                document.getElementById("typewriter").textContent = currentWord.substring(0, j-1);
+                j--;
+                if (j == 0) {
+                    isDeleting = false;
+                    i++;
+                    if (i == words.length) {
+                        i = 0;
+                    }
+                }
+            } 
+            else {
+                document.getElementById("typewriter").textContent = currentWord.substring(0, j+1);
+                j++;
+                if (j == currentWord.length) {
+                    setTimeout(() => {
+                        isDeleting = true;
+                    }, 800);
+                    
+                    
+                }
+            }
+            setTimeout(type, 50);
+        }
+
+        function blink() {
+            const cursor = document.getElementById('cursor');
+            setInterval(() => {
+                if(cursor.classList.contains('border-2')) {
+                    cursor.classList.remove('border-2');
+                    cursor.classList.remove('w-0');
+                    cursor.classList.add('w-[3px]');
+                }
+                else {
+                    cursor.classList.add('border-2');
+                    cursor.classList.remove('w-[3px]');
+                    cursor.classList.add('w-0');
+
+                }
+                
+            }, 300);
+        }
+        
+        function removeThemeChangeBtn() {
+            const themeChangeBtn = document.getElementById('theme_change_button');
+            themeChangeBtn.style.display = 'none';
+        }
+
+
+        type();
+        blink();
+        removeThemeChangeBtn();
+    </script>
 </body>
 </html>
